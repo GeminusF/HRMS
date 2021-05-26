@@ -9,31 +9,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javacamp.hrms.business.abstracts.JobTitlesService;
+import javacamp.hrms.business.abstracts.CandidatesService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.JobTitles;
+import javacamp.hrms.entities.concretes.Candidates;
 
-@RestController 
-@RequestMapping("/api/job_titles")
-public class JobTitlesController {
+@RestController
+@RequestMapping("api/candidates")
+public class CandidatesController {
 	
-	private JobTitlesService jobTitlesService;
+	private CandidatesService candidatesService;
 	
 	@Autowired
-	public JobTitlesController(JobTitlesService jobTitlesService) {
+	public CandidatesController(CandidatesService candidatesService) {
 		super();
-		this.jobTitlesService = jobTitlesService;
+		this.candidatesService = candidatesService;
 	}
-
+	
 	@GetMapping("/getall")
-	public DataResult<List<JobTitles>> getAll(){
-		return this.jobTitlesService.getAll();
+	public DataResult<List<Candidates>> getall(){
+		return this.candidatesService.getall();
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody JobTitles jobTitles) {
-		return this.jobTitlesService.add(jobTitles);
+	@PostMapping("/register")
+	public Result register(@RequestBody Candidates candidates) {
+		return this.candidatesService.register(candidates);
 	}
 	
+	
+
 }

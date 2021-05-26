@@ -11,21 +11,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "job_titles")
+@Table(name = "employers")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class JobTitles {
-
+public class Employers {
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private int id;
-
-	@Column(name = "title")
-	private String title;
-
-
-
-
+	int id;
+	
+	@Column(name = "company_name")
+	String companyName;
+	
+	@Column(name = "web_address")
+	String webAddress;
 }

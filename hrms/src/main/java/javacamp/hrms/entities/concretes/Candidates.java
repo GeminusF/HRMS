@@ -1,5 +1,7 @@
 package javacamp.hrms.entities.concretes;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,22 +12,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
-@Table(name = "job_titles")
+@Table(name = "candidates")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class JobTitles {
-
+public class Candidates {
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private int id;
-
-	@Column(name = "title")
-	private String title;
-
-
-
-
+	int id;
+	
+	@Column(name = "first_name")
+	String firstName;
+	
+	@Column(name = "last_name")
+	String lastName;
+	
+	@Column(name = "identification_number")
+	String identificationNumber;
+	
+	@Column(name = "birth_date")
+	Date birthDate;
+	
 }
