@@ -4,28 +4,24 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name = "candidates")
+@EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Candidates {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	int id;
-	
+public class Candidates extends Users {
+		
 	@Column(name = "first_name")
 	String firstName;
 	
