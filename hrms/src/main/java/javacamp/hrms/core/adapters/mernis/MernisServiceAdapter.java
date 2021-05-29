@@ -5,14 +5,14 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Service;
 
-import javacamp.hrms.entities.concretes.Candidates;
+import javacamp.hrms.entities.concretes.Candidate;
 import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
 
 @Service
 public class MernisServiceAdapter implements CheckService {
 
 	@Override
-	public boolean checkIfRealTcNo(Candidates candidates) {
+	public boolean checkIfRealTcNo(Candidate candidates) {
 
 		KPSPublicSoapProxy kpsPublicSoapProxy = new KPSPublicSoapProxy();
 

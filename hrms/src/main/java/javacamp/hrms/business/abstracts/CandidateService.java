@@ -4,10 +4,11 @@ import java.util.List;
 
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.JobTitles;
+import javacamp.hrms.entities.concretes.Candidate;
 
-public interface JobTitlesService {
-	DataResult<List<JobTitles>> getAll();
+public interface CandidateService {
 	
-	Result add(JobTitles jobTitles);
+	DataResult<List<Candidate>> getall();
+	
+	Result register(Candidate candidates);
 }

@@ -5,32 +5,32 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javacamp.hrms.business.abstracts.UsersService;
+import javacamp.hrms.business.abstracts.UserService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
 import javacamp.hrms.core.utilities.result.SuccessDataResult;
 import javacamp.hrms.core.utilities.result.SuccessResult;
-import javacamp.hrms.dataAccess.abstracts.UsersDao;
-import javacamp.hrms.entities.concretes.Users;
+import javacamp.hrms.dataAccess.abstracts.UserDao;
+import javacamp.hrms.entities.concretes.User;
 
 @Service
-public class UsersManager implements UsersService {
+public class UserManager implements UserService {
 	
-	private UsersDao usersDao;
+	private UserDao usersDao;
 	
 	@Autowired
-	public UsersManager(UsersDao usersDao) {
+	public UserManager(UserDao usersDao) {
 		super();
 		this.usersDao = usersDao;
 	}
 
 	@Override
-	public DataResult<List<Users>> getall() {
-		return new SuccessDataResult<List<Users>>(this.usersDao.findAll(), "İstifadəçilər siyahılandı");
+	public DataResult<List<User>> getall() {
+		return new SuccessDataResult<List<User>>(this.usersDao.findAll(), "İstifadəçilər siyahılandı");
 	}
 
 	@Override
-	public Result register(Users users) {
+	public Result register(User users) {
 		this.usersDao.save(users);
 		return new SuccessResult("Yeni istifadəçi qeydiyyatdan keçdi");
 	}

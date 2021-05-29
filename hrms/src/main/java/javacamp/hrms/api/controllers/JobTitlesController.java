@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javacamp.hrms.business.abstracts.JobTitlesService;
+import javacamp.hrms.business.abstracts.JobTitleService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.JobTitles;
+import javacamp.hrms.entities.concretes.JobTitle;
 
 @RestController 
 @RequestMapping("/api/job_titles")
 public class JobTitlesController {
 	
-	private JobTitlesService jobTitlesService;
+	private JobTitleService jobTitlesService;
 	
 	@Autowired
-	public JobTitlesController(JobTitlesService jobTitlesService) {
+	public JobTitlesController(JobTitleService jobTitlesService) {
 		super();
 		this.jobTitlesService = jobTitlesService;
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<JobTitles>> getAll(){
+	public DataResult<List<JobTitle>> getAll(){
 		return this.jobTitlesService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobTitles jobTitles) {
+	public Result add(@RequestBody JobTitle jobTitles) {
 		return this.jobTitlesService.add(jobTitles);
 	}
 	

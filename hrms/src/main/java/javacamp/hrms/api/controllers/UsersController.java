@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javacamp.hrms.business.abstracts.UsersService;
+import javacamp.hrms.business.abstracts.UserService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.Users;
+import javacamp.hrms.entities.concretes.User;
 
 @RestController
 @RequestMapping("api/users")
 public class UsersController {
 	
-	UsersService usersService;
+	UserService usersService;
 	
 	@Autowired
-	public UsersController(UsersService usersService) {
+	public UsersController(UserService usersService) {
 		super();
 		this.usersService = usersService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Users>> getall(){
+	public DataResult<List<User>> getall(){
 		return this.usersService.getall();
 	}
 	
 	@PostMapping("/register")
-	public Result register(@RequestBody Users users) {
+	public Result register(@RequestBody User users) {
 		return this.usersService.register(users);
 	}
 

@@ -1,0 +1,38 @@
+package javacamp.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javacamp.hrms.business.abstracts.JobVacancyService;
+import javacamp.hrms.core.utilities.result.DataResult;
+import javacamp.hrms.core.utilities.result.Result;
+import javacamp.hrms.core.utilities.result.SuccessDataResult;
+import javacamp.hrms.core.utilities.result.SuccessResult;
+import javacamp.hrms.dataAccess.abstracts.JobVacancyDao;
+import javacamp.hrms.entities.concretes.JobVacancy;
+
+@Service
+public class JobVacancyManager implements JobVacancyService {
+
+	private JobVacancyDao jobVacancyDao;
+	
+	@Autowired
+	public JobVacancyManager(JobVacancyDao jobVacancyDao) {
+		super();
+		this.jobVacancyDao = jobVacancyDao;
+	}
+
+	@Override
+	public DataResult<List<JobVacancy>> getall() {
+		return new SuccessDataResult<List<JobVacancy>>(this.jobVacancyDao.findAll(), "Vakansiyalar siyahılandı");
+	}
+
+	@Override
+	public Result add(JobVacancy jobVacancy) {
+		this.jobVacancyDao.save(jobVacancy);
+		return new SuccessResult("Yeni vakansiya əlavə olundu");
+	}
+
+}

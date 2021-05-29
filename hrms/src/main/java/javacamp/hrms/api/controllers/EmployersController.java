@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javacamp.hrms.business.abstracts.EmployersService;
+import javacamp.hrms.business.abstracts.EmployerService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.Employers;
+import javacamp.hrms.entities.concretes.Employer;
 
 @RestController
 @RequestMapping("api/employers")
 public class EmployersController {
 	
-	private EmployersService employersService;
+	private EmployerService employersService;
 	
 	@Autowired
-	public EmployersController(EmployersService employersService) {
+	public EmployersController(EmployerService employersService) {
 		super();
 		this.employersService = employersService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Employers>> getall(){
+	public DataResult<List<Employer>> getall(){
 		return this.employersService.getall();
 	}
 	
 	@PostMapping("/register")
-	public Result register(@RequestBody Employers employers) {
+	public Result register(@RequestBody Employer employers) {
 		return this.employersService.register(employers);
 	}
 

@@ -3,9 +3,9 @@ package javacamp.hrms.dataAccess.abstracts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javacamp.hrms.entities.concretes.Candidates;
+import javacamp.hrms.entities.concretes.User;
 
 @Repository
-public interface CandidatesDao extends JpaRepository<Candidates, Integer>{
-	
+public interface UserDao extends JpaRepository<User, Integer> {
+
 }

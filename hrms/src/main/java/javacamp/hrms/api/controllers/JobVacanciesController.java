@@ -9,33 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javacamp.hrms.business.abstracts.CandidateService;
+import javacamp.hrms.business.abstracts.JobVacancyService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.Candidate;
+import javacamp.hrms.entities.concretes.JobVacancy;
 
 @RestController
-@RequestMapping("api/candidates")
-public class CandidatesController {
-	
-	private CandidateService candidatesService;
-	
-	@Autowired
-	public CandidatesController(CandidateService candidatesService) {
-		super();
-		this.candidatesService = candidatesService;
-	}
-	
-	@GetMapping("/getall")
-	public DataResult<List<Candidate>> getall(){
-		return this.candidatesService.getall();
-	}
-	
-	@PostMapping("/register")
-	public Result register(@RequestBody Candidate candidates) {
-		return this.candidatesService.register(candidates);
-	}
-	
-	
+@RequestMapping("api/jobvacancies")
+public class JobVacanciesController {
 
+	private JobVacancyService jobVacancyService;
+
+	@Autowired
+	public JobVacanciesController(JobVacancyService jobVacancyService) {
+		super();
+		this.jobVacancyService = jobVacancyService;
+	}
+
+	@GetMapping("/getall")
+	public DataResult<List<JobVacancy>> getall() {
+		return this.jobVacancyService.getall();
+	}
+
+	@PostMapping("/add")
+	public Result add(@RequestBody JobVacancy jobVacancy) {
+		return this.jobVacancyService.add(jobVacancy);
+	}
 }

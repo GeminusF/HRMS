@@ -4,12 +4,12 @@ import java.util.List;
 
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
-import javacamp.hrms.entities.concretes.Users;
+import javacamp.hrms.entities.concretes.User;
 
 
-public interface UsersService {
+public interface UserService {
 	
-	DataResult<List<Users>> getall();
+	DataResult<List<User>> getall();
 	
-	Result register(Users users);
+	Result register(User users);
 }

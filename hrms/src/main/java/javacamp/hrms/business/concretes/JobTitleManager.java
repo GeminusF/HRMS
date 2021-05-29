@@ -5,32 +5,32 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javacamp.hrms.business.abstracts.JobTitlesService;
+import javacamp.hrms.business.abstracts.JobTitleService;
 import javacamp.hrms.core.utilities.result.DataResult;
 import javacamp.hrms.core.utilities.result.Result;
 import javacamp.hrms.core.utilities.result.SuccessDataResult;
 import javacamp.hrms.core.utilities.result.SuccessResult;
-import javacamp.hrms.dataAccess.abstracts.JobTitlesDao;
-import javacamp.hrms.entities.concretes.JobTitles;
+import javacamp.hrms.dataAccess.abstracts.JobTitleDao;
+import javacamp.hrms.entities.concretes.JobTitle;
 
 @Service
-public class JobTitlesManager implements JobTitlesService {
+public class JobTitleManager implements JobTitleService {
 	
-	private JobTitlesDao jobTitlesDao;
+	private JobTitleDao jobTitlesDao;
 	
 	@Autowired
-	public JobTitlesManager(JobTitlesDao jobTitlesDao) {
+	public JobTitleManager(JobTitleDao jobTitlesDao) {
 		super();
 		this.jobTitlesDao = jobTitlesDao;
 	}
 	
 	@Override
-	public DataResult<List<JobTitles>> getAll() {
-		return new SuccessDataResult<List<JobTitles>>(this.jobTitlesDao.findAll(), "İş pozisiyaları siyahılandı");
+	public DataResult<List<JobTitle>> getAll() {
+		return new SuccessDataResult<List<JobTitle>>(this.jobTitlesDao.findAll(), "İş pozisiyaları siyahılandı");
 	}
 
 	@Override
-	public Result add(JobTitles jobTitles) {
+	public Result add(JobTitle jobTitles) {
 		this.jobTitlesDao.save(jobTitles);
 		return new SuccessResult("Yeni iş pozisiyası əlavə olundu");
 	}
