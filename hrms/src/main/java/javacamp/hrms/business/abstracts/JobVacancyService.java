@@ -12,4 +12,11 @@ public interface JobVacancyService {
 	DataResult<List<JobVacancy>> getall();
 	
 	Result add(JobVacancy jobVacancy);
+	
+	DataResult<List<JobVacancy>> findByIsActiveTrue();
+
+	DataResult<List<JobVacancy>> findByIsActiveFalse();
+	
+	DataResult<List<JobVacancy>> findByIsActiveTrueOrderByReleaseDateAsc();
+	
 }

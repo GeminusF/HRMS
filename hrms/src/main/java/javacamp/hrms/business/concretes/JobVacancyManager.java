@@ -17,7 +17,7 @@ import javacamp.hrms.entities.concretes.JobVacancy;
 public class JobVacancyManager implements JobVacancyService {
 
 	private JobVacancyDao jobVacancyDao;
-	
+
 	@Autowired
 	public JobVacancyManager(JobVacancyDao jobVacancyDao) {
 		super();
@@ -34,5 +34,24 @@ public class JobVacancyManager implements JobVacancyService {
 		this.jobVacancyDao.save(jobVacancy);
 		return new SuccessResult("Yeni vakansiya əlavə olundu");
 	}
+
+	@Override
+	public DataResult<List<JobVacancy>> findByIsActiveTrue() {
+		return new SuccessDataResult<List<JobVacancy>>(this.jobVacancyDao.findByIsActiveTrue(),
+				"Aktiv vakansiyalar siyahılandı");
+	}
+
+	@Override
+	public DataResult<List<JobVacancy>> findByIsActiveFalse() {
+		return new SuccessDataResult<List<JobVacancy>>(this.jobVacancyDao.findByIsActiveFalse(),
+				"Pasiv vakansiyalar siyahılandı");
+	}
+
+	@Override
+	public DataResult<List<JobVacancy>> findByIsActiveTrueOrderByReleaseDateAsc() {
+		return new SuccessDataResult<List<JobVacancy>>(this.jobVacancyDao.findByIsActiveTrueOrderByReleaseDateAsc(),
+				"Aktiv vakansiyalar artan yayım tarixinə görə siyahılandı");
+	}
+
 
 }
