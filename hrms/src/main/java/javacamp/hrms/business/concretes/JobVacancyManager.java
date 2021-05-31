@@ -53,5 +53,15 @@ public class JobVacancyManager implements JobVacancyService {
 				"Aktiv vakansiyalar artan yayım tarixinə görə siyahılandı");
 	}
 
+	@Override
+	public DataResult<List<JobVacancy>> findByIsActiveTrueOrderByCompanyName() {
+		return new SuccessDataResult<List<JobVacancy>>(this.jobVacancyDao.findByIsActiveTrueOrderByCompanyName(), "Aktiv vakansiyalar korporativ adına görə sıralandı");
+	}
+
+	@Override
+	public void setIsActiveFalse() {
+		this.jobVacancyDao.setIsActiveFalse();
+	}
+
 
 }

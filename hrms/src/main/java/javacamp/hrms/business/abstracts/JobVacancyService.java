@@ -19,4 +19,7 @@ public interface JobVacancyService {
 	
 	DataResult<List<JobVacancy>> findByIsActiveTrueOrderByReleaseDateAsc();
 	
+	DataResult<List<JobVacancy>> findByIsActiveTrueOrderByCompanyName();
+	
+	public void setIsActiveFalse();
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,19 +38,28 @@ public class JobVacanciesController {
 		return this.jobVacancyService.add(jobVacancy);
 	}
 
-	@GetMapping("/getall/isactive/active")
+	@GetMapping("/isactive/active")
 	public DataResult<List<JobVacancy>> findByIsActiveTrue() {
 		return this.jobVacancyService.findByIsActiveTrue();
 	}
 
-	@GetMapping("/getall/isactive/passive")
+	@GetMapping("/isactive/passive")
 	public DataResult<List<JobVacancy>> findByIsActiveFalse() {
 		return this.jobVacancyService.findByIsActiveFalse();
 	}
 
-	@GetMapping("/getall/isactive/active/orderedbyreleasedateasc")
+	@GetMapping("/isactive/active/orderedbyreleasedateasc")
 	public DataResult<List<JobVacancy>> findByIsActiveTrueOrderByReleaseDateAsc() {
 		return this.jobVacancyService.findByIsActiveTrueOrderByReleaseDateAsc();
+	}
+	
+	@GetMapping("/isactive/active/orderedbycompanyname")
+	public DataResult<List<JobVacancy>> findByIsActiveTrueOrderByCompanyName(){
+		return this.jobVacancyService.findByIsActiveTrueOrderByCompanyName();
+	}
+	@PutMapping("/isactive/setisactivefalse")
+	public void setIsActiveFalse() {
+		this.jobVacancyService.setIsActiveFalse();
 	}
 
 }
