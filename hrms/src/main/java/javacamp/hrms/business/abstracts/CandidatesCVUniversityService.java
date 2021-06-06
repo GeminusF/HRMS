@@ -1,5 +1,6 @@
 package javacamp.hrms.business.abstracts;
 
+import java.sql.Date;
 import java.util.List;
 
 import javacamp.hrms.core.utilities.result.DataResult;
@@ -12,6 +13,6 @@ public interface CandidatesCVUniversityService {
 	
 	Result add(CandidatesCVUniversity cvUniversity);
 	
-	DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(String id);
+	DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(Date date);
 	
 }

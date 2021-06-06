@@ -1,5 +1,6 @@
 package javacamp.hrms.api.controllers;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class CandidatesCVUniversitiesController {
 	}
 	
 	@GetMapping("/getallbygraduationyearorderbyidasc")
-	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(@RequestParam String id){
-		return this.cvUniversityService.findByGraduationYearOrderByIdAsc(id);
+	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(@RequestParam("graduation_year") Date date){
+		return this.cvUniversityService.findByGraduationYearOrderByIdAsc(date);
 	}
 	
 	@PostMapping("/add")

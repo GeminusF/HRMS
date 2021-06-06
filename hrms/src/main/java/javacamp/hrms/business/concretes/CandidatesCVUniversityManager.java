@@ -1,5 +1,6 @@
 package javacamp.hrms.business.concretes;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class CandidatesCVUniversityManager implements CandidatesCVUniversityServ
 	}
 
 	@Override
-	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(String id) {
-		return new SuccessDataResult<List<CandidatesCVUniversity>>(this.cvUniversityDao.findByGraduationYearOrderByIdAsc(id),"Namizəd CV universitetləri məzuniyyət ilinə görə siyahılandı");
+	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(Date date) {
+		return new SuccessDataResult<List<CandidatesCVUniversity>>(this.cvUniversityDao.findByGraduationYearOrderByIdAsc(date),"Namizəd CV universitetləri məzuniyyət ilinə görə siyahılandı");
 	}
 
 
