@@ -1,5 +1,7 @@
 package javacamp.hrms.entities.concretes;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -29,10 +31,10 @@ public class CandidatesCVUniversity {
 	String universtyFaculty;
 	
 	@Column(name = "application_year")
-	String applicationYear;
+	Date applicationYear;
 	
 	@Column(name = "graduation_year")
-	String graduationYear;
+	Date graduationYear;
 	
 	@ManyToOne
 	@JoinColumn(name = "candidates_cv_id")

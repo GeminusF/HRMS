@@ -11,4 +11,7 @@ public interface CandidatesCVUniversityService {
 	DataResult<List<CandidatesCVUniversity>> getall();
 	
 	Result add(CandidatesCVUniversity cvUniversity);
+	
+	DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(String id);
+	
 }

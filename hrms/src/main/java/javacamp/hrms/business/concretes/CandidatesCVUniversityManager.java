@@ -34,6 +34,13 @@ public class CandidatesCVUniversityManager implements CandidatesCVUniversityServ
 		this.cvUniversityDao.save(cvUniversity);
 		return new SuccessResult("Yeni CV universteti əlavə olundu");
 	}
+
+	@Override
+	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(String id) {
+		return new SuccessDataResult<List<CandidatesCVUniversity>>(this.cvUniversityDao.findByGraduationYearOrderByIdAsc(id),"Namizəd CV universitetləri məzuniyyət ilinə görə siyahılandı");
+	}
+
+
 	
 	
 	

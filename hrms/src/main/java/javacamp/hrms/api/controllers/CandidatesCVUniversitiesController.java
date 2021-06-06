@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javacamp.hrms.business.abstracts.CandidatesCVUniversityService;
@@ -30,8 +32,13 @@ public class CandidatesCVUniversitiesController {
 		return this.cvUniversityService.getall();
 	}
 	
+	@GetMapping("/getallbygraduationyearorderbyidasc")
+	public DataResult<List<CandidatesCVUniversity>> findByGraduationYearOrderByIdAsc(@RequestParam String id){
+		return this.cvUniversityService.findByGraduationYearOrderByIdAsc(id);
+	}
+	
 	@PostMapping("/add")
-	public Result add(CandidatesCVUniversity cvUniversity) {
+	public Result add(@RequestBody CandidatesCVUniversity cvUniversity) {
 		return this.cvUniversityService.add(cvUniversity);
 	}
 
