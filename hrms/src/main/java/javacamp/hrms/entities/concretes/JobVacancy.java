@@ -52,4 +52,10 @@ public class JobVacancy {
 	@Column(name = "company_name")
 	String companyName;
 
+	@Column(name = "job_type")
+	String jobType;
+
+	@Column(name = "job_time")
+	String jobTime;
+
 }

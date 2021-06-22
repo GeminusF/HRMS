@@ -3,6 +3,7 @@ package javacamp.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javacamp.hrms.business.abstracts.JobVacancyService;
@@ -52,7 +53,8 @@ public class JobVacanciesController {
 	public DataResult<List<JobVacancy>> findByIsActiveTrueOrderByCompanyName(){
 		return this.jobVacancyService.findByIsActiveTrueOrderByCompanyName();
 	}
-	@PutMapping("/isactive/setisactivefalse")
+	@RequestMapping(value="/isactive/setisactivefalse", method = RequestMethod.PUT)
+	@ResponseStatus(value = HttpStatus.OK)
 	public void setIsActiveFalse() {
 		this.jobVacancyService.setIsActiveFalse();
 	}
